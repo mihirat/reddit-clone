@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redditclone
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redditclone
+  template:
+    metadata:
+      labels:
+        app: redditclone
+    spec:
+      containers:
+        - name: server
+          image: redditclone
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 3000
+          env:
+          - name: RAILS_ENV
+            value: "development" # TODO: make work for prod??
