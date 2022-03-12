@@ -1,11 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+All the code comes from this blog post:
+https://deallen7.medium.com/how-to-build-a-reddit-like-site-with-ruby-on-rails-7b6cd106463d
 
-Things you may want to cover:
 
-* Ruby version
+And added Dockerfile and k8s manifests to test on Docker for mac.
+
+## setup
+
+```
+bundle config set --path vendor/bundle
+bundle install 
+bundle exec rake db:migrate
+```
+
+## how to run (local)
+
+```
+bundle exec rails s
+```
+
+## how to deploy 
+
+```
+docker build -t redditclone .
+kubectl apply -f k8s/
+```
+
+## TBD
+
+things you may want to cover:
 
 * System dependencies
 
